@@ -12,6 +12,7 @@ Route::group(['prefix'=> 'auth'], function(){
 
 Route::controller(PostController::class)->group(function(){
     Route::get('posts','index');
+    Route::get('{slug}','show');
 });
 
 
