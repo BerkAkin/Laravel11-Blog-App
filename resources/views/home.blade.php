@@ -20,7 +20,7 @@
         </div>
 
         <div class="w3-container">
-          <p>{{ $ps->body }}</p>
+          <p>{{Str::substr( $ps->body,0,250) }}...</p>
           <div class="w3-row">
             <div class="w3-col m8 s12">
               <p><button class="w3-button w3-padding-large w3-white w3-border"><b><a href="{{ $ps->slug }}">DEVAMINI OKU »</a> </b></button></p>

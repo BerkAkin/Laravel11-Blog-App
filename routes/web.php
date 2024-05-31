@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
 
-Route::get('home',[PostController::class,'index']);
+Route::get('home',[HomeController::class,'index']);
 Route::get('/', [PostController::class,'index']);
 
 Route::group(['prefix'=> 'auth'], function(){
