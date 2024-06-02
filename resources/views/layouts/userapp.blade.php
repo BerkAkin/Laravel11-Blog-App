@@ -26,7 +26,7 @@
                 </button>
             </div>
             <div>
-                <a class="navbar-brand" href="../index.html">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="images/logo5.png" alt="logo" />
                 </a>
             </div>
@@ -92,7 +92,7 @@
                 <img class="img-xs rounded-circle" src="images/{{ Auth::user()->photo }}" alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                    <img class="img-md rounded-circle" src="images/{{ Auth::user()->photo }}" alt="Profile image">
+                    <img class="img-sm rounded-circle" src="images/{{ Auth::user()->photo }}" alt="Profile image">
                     <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name}}</p>
                     <p class="fw-light text-muted mb-0">{{ Auth::user()->email }}</p>
                 </div>
