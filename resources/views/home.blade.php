@@ -13,7 +13,7 @@
         
     
       <div class="w3-card-4 w3-margin w3-white">
-        <a href="{{ $ps->slug }}"><img src="https://placehold.jp/3d4070/ffffff/600x120.png" alt="Nature" style="width:100%"></a>
+        <a href="{{ $ps->slug }}"><img src="https://placehold.jp/fb5b5b/ffffff/600x120.png" alt="Nature" style="width:100%"></a>
         <div class="w3-container">
           <h3><b><a href="{{ $ps->slug }}">{{ $ps->title }}</a></b></h3>
           <h5>Oluşturan: {{ $ps->author->name }} <span class="w3-opacity">{{ $ps->created_at->diffForHumans() }}</span></h5>
