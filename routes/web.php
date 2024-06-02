@@ -9,7 +9,7 @@ Route::get('home',[HomeController::class,'index']);
 Route::get('/', [PostController::class,'index']);
 
 Route::group(['prefix'=> 'auth'], function(){
-    Route::get('logout',[UserController::class,'logout']);
+    Route::get('logout',[UserController::class,'logout'])->name('logout');
     Auth::routes();
 });
 
