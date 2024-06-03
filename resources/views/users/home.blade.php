@@ -17,7 +17,7 @@
                                     <h4 class="card-title">Haber Ekle</h4>
                                 </div>
                             </div>
-                            <form method="POST" class="forms-sample">
+                            <form method="POST" class="forms-sample" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                   <label for="exampleInputUsername1">Başlık</label>
@@ -28,17 +28,12 @@
                                   <textarea class="form-control form-control-lg" id="exampleInputEmail1" rows="8" name="body" placeholder="İçerik"></textarea>
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleInputPassword1">Url</label>
-                                  <input class="form-control form-control-lg" id="exampleInputPassword1" name="slug" placeholder="Slug">
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputConfirmPassword1">Fotoğraf</label>
-                                  <div class="d-flex">
-                                    <input type="file" class="file-upload-default" id="exampleInputConfirmPassword1" name="img[]" placeholder="Fotoğraf">
-                                    <input type="text" disabled class="form-control file-upload-info" placeholder="Upload">
-                                    <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
+                                    <label>Fotoğraf</label>
+                                    <input type="file" name="img[]" class="file-upload-default">
+                                    <div class="input-group col-xs-12">
+                                        <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="form-control file-upload-info">
+                                    </div>
                                   </div>
-                                </div>
                                 <button type="submit" class="btn btn-primary me-2">Kaydet</button>
                                 <button type="reset" class="btn btn-light">İptal</button>
                               </form>
