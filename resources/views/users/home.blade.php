@@ -56,17 +56,27 @@
                                         <th>Başlık</th>
                                         <th>Yazar</th>
                                         <th>Tarih</th>
-                                        <th>İşlem</th>
+                                        <th>Habere Git</th>
+                                        <th>İşlemler</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ( $posts as $post)
                                         <tr>
-                                        <td>1</td>
-                                        <td>Foto Stüdyo</td>
-                                        <td>Berk Akın</td>
-                                        <td>03.06.2024</td>
-                                        <td>Yayınlandı</td>
+                                            <td>{{$post->id }}</td>
+                                            <td>{{$post->title }}</td>
+                                            <td>{{$post->author->name }}</td>
+                                            <td>{{$post->created_at }}</td>
+                                            <td><a href="{{$post->slug}}">{{$post->slug }}</a></td>
+                                            <td>
+                                                <div>
+                                                    <a class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                                                    <a class="btn btn-danger" href="{{ route('postdelete',['id'=>$post->id ])}}"><i class="fa fa-trash"></i></a>
+                                                </div>
+                                            </td>
                                         </tr>
+                                        @endforeach
+                                        
                                     </tbody>
                                      </table>
                                 </div>
