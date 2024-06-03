@@ -1,19 +1,22 @@
 @extends('layouts.app')
 
+@section('right')
+@parent
+@endsection
+
 @section('content')
-
-
-<div class="w3-content" style="max-width:1000px">
-
-  <div class="w3-row">
 
     <div class="w3-col l8 s12">
 
       @foreach ($posts as $ps)
         
-    
       <div class="w3-card-4 w3-margin w3-white">
-        <a href="{{ $ps->slug }}"><img src="{{ asset('storage/images/'.$ps->photo) }}" style="width:100%"></a>
+        <a href="{{ $ps->slug }}">
+          @if($ps->photo)
+            <img src="{{ asset('storage/images/'.$ps->photo) }}" style="width:100%"></a>
+          @else
+          @endif
+          
         <div class="w3-container">
           <h3><b><a href="{{ $ps->slug }}">{{ $ps->title }}</a></b></h3>
           <h5>Oluşturan: {{ $ps->author->name }} <span class="w3-opacity">{{ $ps->created_at->diffForHumans() }}</span></h5>
@@ -35,60 +38,8 @@
     @endforeach
     </div>
 
-    <div class="w3-col l4">
 
-      
 
-      <div class="w3-card w3-margin">
-        <div class="w3-container w3-padding">
-          <h4>Popular Posts</h4>
-        </div>
-        <ul class="w3-ul w3-hoverable w3-white">
-          <li class="w3-padding-16">
-            <img src="https://www.w3schools.com/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Lorem</span><br>
-            <span>Sed mattis nunc</span>
-          </li>
-          <li class="w3-padding-16">
-            <img src="https://www.w3schools.com/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Ipsum</span><br>
-            <span>Praes tinci sed</span>
-          </li> 
-          <li class="w3-padding-16">
-            <img src="https://www.w3schools.com/w3images/skies.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Dorum</span><br>
-            <span>Ultricies congue</span>
-          </li>   
-          <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-            <img src="https://www.w3schools.com/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-            <span class="w3-large">Mingsum</span><br>
-            <span>Lorem ipsum dipsum</span>
-          </li>  
-        </ul>
-      </div>
-
-    
-
-      <div class="w3-card w3-margin">
-        <div class="w3-container w3-padding">
-          <h4>Tags</h4>
-        </div>
-        <div class="w3-container w3-white">
-        <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
-          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
-          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
-          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
-          <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
-        </p>
-        </div>
-      </div>
-      
-    </div>
-
-  </div>
-  <br>
-
-</div>
 
 
 
