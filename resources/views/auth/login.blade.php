@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('right')
+@endsection
 
 @section('content')
 <div class="container">
