@@ -71,7 +71,7 @@
                                             <td>
                                                 <div>
                                                     <a class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                                    <a class="btn btn-danger" href="{{ route('postdelete',['id'=>$post->id ])}}"><i class="fa fa-trash"></i></a>
+                                                    <a onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-danger" href="{{ route('postdelete',['id'=>$post->id ])}}"><i class="fa fa-trash"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
