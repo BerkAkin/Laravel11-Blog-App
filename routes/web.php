@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 Route::get('home',[HomeController::class,'index'])->name('userhome');
 Route::post('home',[HomeController::class,'create']);
 Route::get('post/delete/{id}',[HomeController::class,'delete'])->name('postdelete');
+Route::get('post/edit/{id}',[HomeController::class,'edit'])->name('postedit');
 
 Route::get('/', [PostController::class,'index'])->name('home');
 
@@ -22,4 +23,4 @@ Route::controller(PostController::class)->group(function(){
 });
 
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
