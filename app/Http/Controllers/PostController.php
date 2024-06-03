@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use App\Models\Posts;
 
 class PostController extends Controller
 {
     public function index(){
-        $posts = Posts::all();
+        $posts = Posts::orderBy('created_at', 'DESC')->get();
         return view("home",compact('posts'));
     }
 
@@ -22,8 +23,9 @@ class PostController extends Controller
         $post = new Posts();
         $post->title= $request->title;
         $post->body= $request->body;
-        $post->slug= $request->slug;
-        $post->photo= "";
+        $post->slug= Str::slug($request->title,'-','tr');
+        $post->photo= $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->store('public/images');
         $post->author_id= Auth::user()->id;
         $post->save();
         return redirect('home');
