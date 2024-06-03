@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Posts;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -47,6 +48,10 @@ class HomeController extends Controller
 
     public function delete($id){
         $post = Posts::find($id);
+
+        $photo = $post->photo;
+        Storage::delete("public/images/".$photo);
+
         $post->delete();
         return redirect('home');
     }
