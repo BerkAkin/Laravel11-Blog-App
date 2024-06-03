@@ -6,7 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 
 Route::get('home',[HomeController::class,'index'])->name('userhome');
-Route::post('home',[PostController::class,'create']);
+Route::post('home',[HomeController::class,'create']);
+Route::get('post/delete/{id}',[HomeController::class,'delete'])->name('postdelete');
 
 Route::get('/', [PostController::class,'index'])->name('home');
 
