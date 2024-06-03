@@ -28,7 +28,7 @@
             </div>
             <div>
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="images/logo5.png" alt="logo" />
+                    <img src="{{ asset('images/logo5.png') }}" alt="logo" />
                 </a>
             </div>
         </div>
