@@ -17,7 +17,7 @@
                                     <h4 class="card-title">Haber Ekle</h4>
                                 </div>
                             </div>
-                            <form method="POST" class="forms-sample" enctype="multipart/form-data">
+                            <form method="POST" action="" class="forms-sample" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                   <label for="exampleInputUsername1">Başlık</label>
@@ -29,7 +29,6 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Fotoğraf</label>
-                                    <input type="file" name="img[]" class="file-upload-default">
                                     <div class="input-group col-xs-12">
                                         <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="form-control file-upload-info">
                                     </div>
@@ -70,7 +69,7 @@
                                             <td><a href="{{$post->slug}}">{{$post->slug }}</a></td>
                                             <td>
                                                 <div>
-                                                    <a class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                                                    <a class="btn btn-info" href="{{ route('postedit',['id'=>$post->id]) }}"><i class="fa fa-pencil"></i></a>
                                                     <a onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-danger" href="{{ route('postdelete',['id'=>$post->id ])}}"><i class="fa fa-trash"></i></a>
                                                 </div>
                                             </td>
