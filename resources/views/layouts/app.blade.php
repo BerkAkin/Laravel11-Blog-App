@@ -14,16 +14,8 @@
     <style>
         body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </style>
-    <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
-    <link rel="stylesheet" href="{{ asset('/vendors/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/vendors/ti-icons/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('/vendors/typicons/typicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('/vendors/simple-line-icons/css/simple-line-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('/datatables.net-bs4/dataTables.bootstrap4.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/js/select.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" />
 </head>
 <body>
     <div id="app">
@@ -78,25 +70,62 @@
         </nav>
 
         <main class="py-4" style="background: #f4f5f7">
-            @yield('content')
+            <div class="w3-content" style="max-width: 1000px">
+                <div class="w3-row">
+                  @yield('content')  
+                  @section('right')
+                    <div class="w3-col l4">
+                        <div class="w3-card w3-margin">
+                        <div class="w3-container w3-padding">
+                            <h4>Popular Posts</h4>
+                        </div>
+                        <ul class="w3-ul w3-hoverable w3-white">
+                            <li class="w3-padding-16">
+                            <img src="https://www.w3schools.com/w3images/workshop.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Lorem</span><br>
+                            <span>Sed mattis nunc</span>
+                            </li>
+                            <li class="w3-padding-16">
+                            <img src="https://www.w3schools.com/w3images/gondol.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Ipsum</span><br>
+                            <span>Praes tinci sed</span>
+                            </li> 
+                            <li class="w3-padding-16">
+                            <img src="https://www.w3schools.com/w3images/skies.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Dorum</span><br>
+                            <span>Ultricies congue</span>
+                            </li>   
+                            <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+                            <img src="https://www.w3schools.com/w3images/rock.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+                            <span class="w3-large">Mingsum</span><br>
+                            <span>Lorem ipsum dipsum</span>
+                            </li>  
+                        </ul>
+                        </div>
+                        <div class="w3-card w3-margin">
+                        <div class="w3-container w3-padding">
+                            <h4>Tags</h4>
+                        </div>
+                        <div class="w3-container w3-white">
+                        <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+                            <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+                        </p>
+                        </div>
+                        </div>
+                    </div>
+                    @show
+                </div>
+            </div>
         </main>
+        
     </div>
     <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
         <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
         <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
     </footer>
-    
-    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{ asset('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('vendors/progressbar.js/progressbar.min.js') }}"></script>
-    <script src="{{ asset('js/off-canvas.js') }}"></script>
-    <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('js/template.js') }}"></script>
-    <script src="{{ asset('js/settings.js') }}"></script>
-    <script src="{{ asset('js/todolist.js') }}"></script>
-    <script src="{{ asset('js/jquery.cookie.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
-    <script src="{{ asset('js/proBanner.js') }}"></script>
+
 </body>
 </html>
