@@ -7,80 +7,76 @@
             <div class="tab-content tab-content-basic">
             <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                 <div class="row">
-                <div class="col-lg-8 d-flex flex-column">
+                <div class="col-lg-12 d-flex flex-column">
                     <div class="row flex-grow">
                     <div class="col-12 grid-margin stretch-card">
-                        <div class="card card-rounded">
+                        <div class="card">
                         <div class="card-body">
                             <div class="d-sm-flex justify-content-between align-items-start">
                                 <div>
-                                    <h4 class="card-title-dash">Makaleler</h4>
+                                    <h4 class="card-title">Haber Ekle</h4>
                                 </div>
                             </div>
-                            <p class="card-description">Basic form layout</p>
-                            <form class="forms-sample">
+                            <form method="POST" class="forms-sample">
+                                @csrf
                                 <div class="form-group">
-                                  <label for="exampleInputUsername1">Username</label>
-                                  <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Email address</label>
-                                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                                  <label for="exampleInputUsername1">Başlık</label>
+                                  <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" name="title" placeholder="Başlık">
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleInputPassword1">Password</label>
-                                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                  <label for="exampleInputEmail1">İçerik</label>
+                                  <textarea class="form-control form-control-lg" id="exampleInputEmail1" rows="8" name="body" placeholder="İçerik"></textarea>
                                 </div>
                                 <div class="form-group">
-                                  <label for="exampleInputConfirmPassword1">Confirm Password</label>
-                                  <input type="password" class="form-control" id="exampleInputConfirmPassword1"
-                                    placeholder="Password">
+                                  <label for="exampleInputPassword1">Url</label>
+                                  <input class="form-control form-control-lg" id="exampleInputPassword1" name="slug" placeholder="Slug">
                                 </div>
-                                <div class="form-check form-check-flat form-check-primary">
-                                  <label class="form-check-label">
-                                    <input type="checkbox" class="form-check-input">
-                                    Remember me
-                                  </label>
+                                <div class="form-group">
+                                  <label for="exampleInputConfirmPassword1">Fotoğraf</label>
+                                  <div class="d-flex">
+                                    <input type="file" class="file-upload-default" id="exampleInputConfirmPassword1" name="img[]" placeholder="Fotoğraf">
+                                    <input type="text" disabled class="form-control file-upload-info" placeholder="Upload">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
+                                  </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary me-2">Submit</button>
-                                <button class="btn btn-light">Cancel</button>
+                                <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                                <button type="reset" class="btn btn-light">İptal</button>
                               </form>
                         </div>
                         </div>
                     </div>
                     </div>
                 </div>
-                <div class="col-lg-4 d-flex flex-column">
+                <div class="col-lg-12 d-flex flex-column">
                     <div class="row flex-grow">
-                    <div class="col-12 grid-margin stretch-card">
-                        <div class="card card-rounded">
-                        <div class="card-body">
-                            <div class="row">
-                            <div class="col-lg-12">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div>
-                                    <h4 class="card-title card-title-dash">Top Performer</h4>
-                                </div>
-                                </div>
-                                <div class="mt-3">
-                                <div
-                                    class="wrapper d-flex align-items-center justify-content-between py-2 border-bottom">
-                                    <div class="d-flex">
-                                    <img class="img-sm rounded-10" src="assets/images/faces/face1.jpg"
-                                        alt="profile">
-                                    <div class="wrapper ms-3">
-                                        <p class="ms-1 mb-1 fw-bold">Brandon Washington</p>
-                                        <small class="text-muted mb-0">162543</small>
-                                    </div>
-                                    </div>
-                                    <div class="text-muted text-small">
-                                    1h ago
-                                    </div>
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                <h4 class="card-title">Haberler</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th>#</th>
+                                        <th>Başlık</th>
+                                        <th>Yazar</th>
+                                        <th>Tarih</th>
+                                        <th>İşlem</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td>1</td>
+                                        <td>Foto Stüdyo</td>
+                                        <td>Berk Akın</td>
+                                        <td>03.06.2024</td>
+                                        <td>Yayınlandı</td>
+                                        </tr>
+                                    </tbody>
+                                     </table>
                                 </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
                         </div>
                     </div>
                     </div>
