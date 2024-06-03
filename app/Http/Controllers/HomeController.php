@@ -55,4 +55,10 @@ class HomeController extends Controller
         $post->delete();
         return redirect('home');
     }
+
+    public function edit($id){
+        $post = Posts::find($id);
+        return view('users.edit',compact('post'));
+    }
+
 }
