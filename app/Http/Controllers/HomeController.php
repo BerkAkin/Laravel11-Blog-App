@@ -61,4 +61,24 @@ class HomeController extends Controller
         return view('users.edit',compact('post'));
     }
 
+    public function update(Request $request){
+        $id = $request->postid;
+        $post = Posts::find($id);
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $hasFile = $request->hasFile('image');
+        if($hasFile){
+            $filename = 'postphoto-'.time().'.'.$request->file('image')->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs('public/images/posts', $filename);
+            $post->photo = "posts/". $filename;
+            $oldimage = $request->oldimage;
+            Storage::delete("public/images/".$oldimage);
+
+        }
+        $post->save();
+        return redirect('home');
+    }
+
+    
+
 }
