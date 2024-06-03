@@ -36,11 +36,14 @@ class HomeController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->slug = Str::slug($request->title,'-','tr');
-
-        $filename = 'postphoto-'.time().'.'.$request->file('image')->getClientOriginalExtension();
-        $path = $request->file('image')->storeAs('public/images/posts', $filename);
-        $post->photo = "posts/". $filename;
-
+        if($request->hasFile('image')){
+            $filename = 'postphoto-'.time().'.'.$request->file('image')->getClientOriginalExtension();
+            $path = $request->file('image')->storeAs('public/images/posts', $filename);
+            $post->photo = "posts/". $filename;
+        }
+        else{
+            $post->photo="";
+        }
         $post->author_id = Auth::user()->id;
         $post->save();
         return redirect('home');
@@ -73,7 +76,6 @@ class HomeController extends Controller
             $post->photo = "posts/". $filename;
             $oldimage = $request->oldimage;
             Storage::delete("public/images/".$oldimage);
-
         }
         $post->save();
         return redirect('home');
