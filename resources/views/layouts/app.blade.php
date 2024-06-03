@@ -26,9 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ "EnyThing" }}
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo4.png') }}" width="300px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -55,10 +53,10 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item me-5">
                                 <a class="nav-link" href="{{ route('userhome') }}" role="button">Panel</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown me-5">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -83,7 +81,6 @@
     <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
         <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
         <button class="w3-button w3-black w3-padding-large w3-margin-bottom">Next »</button>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
     </footer>
 </body>
 </html>
