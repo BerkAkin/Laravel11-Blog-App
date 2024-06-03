@@ -14,10 +14,10 @@
                         <div class="card-body">
                             <div class="d-sm-flex justify-content-between align-items-start">
                                 <div>
-                                    <h4 class="card-title">Haber Düzenle</h4>
+                                    <h4 class="card-title">Haberi Düzenle</h4>
                                 </div>
                             </div>
-                            <form method="POST" class="forms-sample" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('postupdate') }}" class="forms-sample" enctype="multipart/form-data">
                                 <input type="hidden" name="postid" value="{{ $post->id }}" >
                                 @csrf
                                 <div class="form-group">
@@ -32,10 +32,11 @@
                                     <label>Fotoğraf</label>
                                     <div class="input-group col-xs-12">
                                         <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="form-control file-upload-info">
+                                        <input type="hidden" name="oldimage" value="{{ $post->photo }}">
                                     </div>
                                   </div>
                                 <button type="submit" class="btn btn-primary me-2">Kaydet</button>
-                                <button type="reset" class="btn btn-light">İptal</button>
+                                <a href="{{ url('home')}}" type="reset" class="btn btn-light">İptal</a>
                               </form>
                         </div>
                         </div>
