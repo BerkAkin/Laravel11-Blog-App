@@ -30,8 +30,11 @@ class PostController extends Controller
     }
 
     public function yorumSil($id){
-        $comment = Comments::find($id);
-        $comment->delete();
+        $comments = Comments::find($id);
+        if(Auth::user()->id == $comments->from_user ){
+            $comments->delete();
+        }
+        
         return redirect()->back();
     }
 
