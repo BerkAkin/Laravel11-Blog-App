@@ -79,10 +79,10 @@
                 </div>
             </div>
             <div class="header">
-                <h2>{{ count($comments) }} Yorum</h2>
+                <h2>{{ count($posts->comments) }} Yorum</h2>
             </div>
 
-            @foreach ($comments as $comment)
+            @foreach ($posts->comments as $comment)
               <div class="body">
                 <ul class="comment-reply ">
                     <li class="row">
