@@ -17,8 +17,7 @@ class PostController extends Controller
 
     public function show($slug){
        $posts = Posts::where('slug',$slug)->get()->first();
-       $comments = Comments::where('on_post', $posts->id)->get();
-       return view('show',compact('posts','comments'));
+       return view('show',compact('posts'));
     }
 
     public function postComment(Request $request){
