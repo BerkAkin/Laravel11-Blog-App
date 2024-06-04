@@ -26,7 +26,7 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">İçerik</label>
-                                  <textarea class="form-control form-control-lg" id="exampleInputEmail1"  value="{{ $post->body }}"   rows="8" name="body" placeholder="İçerik"> {{ $post->body }}</textarea>
+                                  <textarea class="form-control form-control-lg" id="editor"  value="{{ $post->body }}"   rows="8" name="body" placeholder="İçerik"> {{ $post->body }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Fotoğraf</label>
@@ -49,4 +49,12 @@
         </div>
         </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
