@@ -11,7 +11,13 @@ Route::get('post/delete/{id}',[HomeController::class,'delete'])->name('postdelet
 Route::get('post/edit/{id}',[HomeController::class,'edit'])->name('postedit');
 Route::post('post/update',[HomeController::class,'update'])->name('postupdate');
 
+
+
 Route::get('/', [PostController::class,'index'])->name('home');
+Route::post('postcomments', [PostController::class,'postComment'])->name('yorumyap');
+Route::get('getcomments', [PostController::class,'getComments'])->name('yorumgetir');
+
+
 
 Route::group(['prefix'=> 'auth'], function(){
     Route::get('logout',[UserController::class,'logout'])->name('logout');
