@@ -53,7 +53,7 @@
             </div>
     
             <div class="w3-container mt-3">
-              <p style="font-size: 1.15rem">{{ $posts->body }}</p>
+              <p style="font-size: 1.15rem">{!! $posts->body !!}</p>
           </div>
         </div>
 
