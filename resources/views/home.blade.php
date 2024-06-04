@@ -23,7 +23,7 @@
         </div>
 
         <div class="w3-container mt-3">
-          <p style="font-size: 1.15rem">{{Str::substr( $ps->body,0,250) }}...</p>
+          <p style="font-size: 1.15rem">{!! Str::substr( $ps->body,0,250) !!}...</p>
           <div class="w3-row mt-4 mb-2">
             <div class="w3-col m8 s12">
               <p ><button class="w3-button w3-padding-large w3-white w3-border"><b><a style="text-decoration: none; color: black" href="{{ $ps->slug }}">DEVAMINI OKU »</a> </b></button></p>
