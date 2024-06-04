@@ -95,7 +95,9 @@
                               <h5>{{ $comment->author->name }}</h5>
                             </div>
                             <div class="col-6 d-flex justify-content-end">
-                              <a class="m-b-0 btn btn-sm btn-danger" href="{{ route('yorumSil',['id'=>$comment->id]) }}">Yorumu Sil</a>
+                              @if(@Auth::user()->id == $comment->from_user)
+                                <a class="m-b-0 btn btn-sm btn-danger" href="{{ route('yorumSil',['id'=>$comment->id]) }}">Yorumu Sil</a>
+                              @endif
                             </div>
                           </div>
 
