@@ -14,8 +14,6 @@ Route::post('post/update',[HomeController::class,'update'])->name('postupdate');
 
 
 Route::get('/', [PostController::class,'index'])->name('home');
-Route::post('postcomments', [PostController::class,'postComment'])->name('yorumyap');
-Route::get('getcomments', [PostController::class,'getComments'])->name('yorumgetir');
 
 
 
@@ -27,6 +25,9 @@ Route::group(['prefix'=> 'auth'], function(){
 Route::controller(PostController::class)->group(function(){
     Route::get('posts','index');
     Route::get('{slug}','show');
+    Route::get('yorumsil/{id}','yorumsil')->name('yorumSil');
+    Route::post('postcomments','postComment')->name('yorumyap');
+    Route::get('getcomments','getComments')->name('yorumgetir');
 });
 
 
