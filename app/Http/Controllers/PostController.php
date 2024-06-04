@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Posts;
+use App\Models\Comments;
 
 class PostController extends Controller
 {
@@ -16,8 +17,17 @@ class PostController extends Controller
 
     public function show($slug){
        $posts = Posts::where('slug',$slug)->get()->first();
-       return view('show',compact('posts'));
+       $comments = Comments::where('on_post', $posts->id)->get();
+       return view('show',compact('posts','comments'));
     }
 
+    public function postComment(Request $request){
+        $comment = new Comments();
+        $comment->on_post = $request->postId;
+        $comment->from_user = Auth::user()->id;
+        $comment->body= $request->comment;
+        $comment->save();
+        return redirect()->back();
+    }
 
 }
