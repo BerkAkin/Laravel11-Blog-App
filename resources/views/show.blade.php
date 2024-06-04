@@ -57,6 +57,21 @@
         <div class="w3-container">
           <div class="card">
             <div class="header">
+              <h2>Yorum Yap</h2>
+            </div>
+            <div class="body">
+              <div >
+                  <form class="row">
+                      <div class="col-sm-12">
+                          <div class="form-group">
+                              <textarea rows="4" class="form-control no-resize" placeholder="Yorum"></textarea>
+                          </div>
+                          <button type="submit" class="btn btn-block btn-primary">Yorum Yap</button>
+                      </div>                                
+                  </form>
+                </div>
+            </div>
+            <div class="header">
                 <h2>3 Yorum</h2>
             </div>
             <div class="body">
@@ -75,31 +90,7 @@
                   </li>
               </ul>                                        
             </div>
-            <div class="header">
-              <h2>Yorum Yap</h2>
-            </div>
-            <div class="body">
-              <div >
-                  <form class="row">
-                      <div class="col-sm-6">
-                          <div class="form-group">
-                              <input type="text" class="form-control" placeholder="İsim">
-                          </div>
-                      </div>
-                      <div class="col-sm-6">
-                          <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Email">
-                          </div>
-                      </div>
-                      <div class="col-sm-12">
-                          <div class="form-group">
-                              <textarea rows="4" class="form-control no-resize" placeholder="Yorum"></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-block btn-primary">Yorum Yap</button>
-                      </div>                                
-                  </form>
-                </div>
-            </div>
+
           </div>
         </div>
     </div>
