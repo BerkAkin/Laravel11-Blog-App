@@ -63,36 +63,44 @@
               <h2>Yorum Yap</h2>
             </div>
             <div class="body">
-              <div >
-                  <form class="row">
+              <div>
+
+                  <form class="row" method="POST" action="{{ route('yorumyap') }}">
+                    @csrf
+                    <input type="hidden" name="postId" value="{{ $posts ->id }}">
                       <div class="col-sm-12">
                           <div class="form-group">
-                              <textarea rows="4" class="form-control no-resize" placeholder="Yorum"></textarea>
+                              <textarea name="comment" rows="4" class="form-control no-resize" placeholder="Yorum"></textarea>
                           </div>
                           <button type="submit" class="btn btn-block btn-primary">Yorum Yap</button>
                       </div>                                
                   </form>
+
                 </div>
             </div>
             <div class="header">
-                <h2>3 Yorum</h2>
+                <h2>{{ count($comments) }} Yorum</h2>
             </div>
-            <div class="body">
-              <ul class="comment-reply ">
-                  <li class="row">
-                      <div class="col-md-2 col-4">
-                        <img class="img-fluid img-thumbnail" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Awesome Image">
-                      </div>
-                      <div class="col-md-10 col-8 p-l-0 p-r0">
-                          <h5 class="m-b-0">Berk Akın</h5>
-                          <p>Why are there so many tutorials on how to decouple WordPress? how fast and easy it is to get it running</p>
-                          <ul class="list-inline">
-                              <li>Mar 09 2018</li>
-                          </ul>
-                      </div>
-                  </li>
-              </ul>                                        
-            </div>
+
+            @foreach ($comments as $comment)
+              <div class="body">
+                <ul class="comment-reply ">
+                    <li class="row">
+                        <div class="col-md-2 col-4">
+                          <img class="img-fluid" src="images/{{ $comment->author->photo }}" alt="Awesome Image">
+                        </div>
+                        <div class="col-md-10 col-8 p-l-0 p-r0">
+                            <h5 class="m-b-0">{{ $comment->author->name  }}</h5>
+                            <p>{{ $comment->body }}</p>
+                            <ul class="list-inline mt-2 ">
+                                <li>{{ $comment->created_at->format('d-m-y') }}</li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>                                        
+              </div>
+            @endforeach
+            
 
           </div>
         </div>
