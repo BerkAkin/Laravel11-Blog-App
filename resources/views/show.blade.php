@@ -89,8 +89,18 @@
                         <div class="col-md-2 col-4">
                           <img class="img-fluid" src="images/{{ $comment->author->photo }}" alt="Awesome Image">
                         </div>
-                        <div class="col-md-10 col-8 p-l-0 p-r0">
-                            <h5 class="m-b-0">{{ $comment->author->name  }}</h5>
+                        <div class="col-md-10 col-8 p-l-0 p-r0 ">
+                          <div class="row ">
+                            <div class="col-6 d-flex align-items-center">
+                              <h5>{{ $comment->author->name }}</h5>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                              <a class="m-b-0 btn btn-sm btn-danger" href="{{ route('yorumSil',['id'=>$comment->id]) }}">Yorumu Sil</a>
+                            </div>
+                          </div>
+
+                              
+                              
                             <p>{{ $comment->body }}</p>
                             <ul class="list-inline mt-2 ">
                                 <li>{{ $comment->created_at->format('d-m-y') }}</li>
