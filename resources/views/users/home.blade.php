@@ -23,10 +23,14 @@
                                   <label for="exampleInputUsername1">Başlık</label>
                                   <input type="text" class="form-control form-control-lg" id="exampleInputUsername1" name="title" placeholder="Başlık">
                                 </div>
+
+
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">İçerik</label>
-                                  <textarea class="form-control form-control-lg" id="exampleInputEmail1" rows="8" name="body" placeholder="İçerik"></textarea>
+                                  <textarea class="form-control" id="editor" rows="8" name="body" placeholder="İçerik"></textarea>
                                 </div>
+
+
                                 <div class="form-group">
                                     <label>Fotoğraf</label>
                                     <div class="input-group col-xs-12">
@@ -85,10 +89,18 @@
                     </div>
                     </div>
                 </div>
-                </div>
+                </div> 
             </div>
             </div>
         </div>
         </div>
     </div>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
