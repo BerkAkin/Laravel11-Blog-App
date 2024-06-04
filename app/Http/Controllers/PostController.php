@@ -29,4 +29,10 @@ class PostController extends Controller
         return redirect()->back();
     }
 
+    public function yorumSil($id){
+        $comment = Comments::find($id);
+        $comment->delete();
+        return redirect()->back();
+    }
+
 }
