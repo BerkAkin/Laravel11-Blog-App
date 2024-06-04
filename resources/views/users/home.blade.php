@@ -63,10 +63,10 @@
                                         @foreach ( $posts as $post)
                                         <tr>
                                             <td>{{$post->id }}</td>
-                                            <td>{{$post->title }}</td>
+                                            <td>{{Str::substr( $post->title,0,130) }}...</td>
                                             <td>{{$post->author->name }}</td>
                                             <td>{{$post->created_at }}</td>
-                                            <td><a href="{{$post->slug}}">{{$post->slug }}</a></td>
+                                            <td><a href="{{$post->slug}}">{{Str::substr( $post->slug,0,20)}}...</a></td>
                                             <td>
                                                 <div>
                                                     <a class="btn btn-info" href="{{ route('postedit',['id'=>$post->id]) }}"><i class="fa fa-pencil"></i></a>
