@@ -32,7 +32,7 @@
 
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">İçerik</label>
-                                  <textarea class="form-control" id="editor" name="editor" rows="8"  placeholder="İçerik"></textarea>
+                                  <textarea class="form-control" id="editor" name="body" rows="8"  placeholder="İçerik"></textarea>
                                 </div>
 
 
@@ -104,12 +104,14 @@
     <script>
         ClassicEditor
         .create(document.querySelector('#editor'), {
-                    ckfinder: {
-                        uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+            
+            
+            ckfinder: {
+                uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
     </script>
 @endsection
