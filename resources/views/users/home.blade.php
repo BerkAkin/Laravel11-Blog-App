@@ -78,7 +78,7 @@
                                                 <td><a href="{{$post->slug}}">{{Str::substr( $post->slug,0,20)}}...</a></td>
                                                 <td>
                                                     <div>
-                                                        <a class="btn btn-info" href="{{ route('postedit',['id'=>$post->id]) }}"><i class="fa fa-pencil"></i></a>
+                                                        <a class="btn btn-info btn-sm" href="{{ route('postedit',['id'=>$post->id]) }}"><i class="fa fa-pencil"></i></a>
                                                         <a onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-sm btn-danger" href="{{ route('postdelete',['id'=>$post->id ])}}"><i class="fa fa-trash"></i></a>
                                                     </div>
                                                 </td>
