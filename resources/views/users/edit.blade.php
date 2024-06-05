@@ -1,5 +1,9 @@
 @extends('layouts.userapp')
-
+<style>
+    .ck-editor__editable_inline{
+        height: 300px;
+    }
+</style>
 @section('content')
     <div class="row">
         <div class="col-sm-12">
@@ -52,9 +56,13 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
+        .create(document.querySelector('#editor'), {
+                    ckfinder: {
+                        uploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
     </script>
 @endsection
