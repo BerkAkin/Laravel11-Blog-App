@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('photo')->default('users/avatar.jpg');
             $table->enum('role',['admin','editor','user'])->default('editor');
             $table->enum('gender',['erkek','kadın']);
+            $table->integer('age');
             $table->rememberToken();
             $table->timestamps();
         });
