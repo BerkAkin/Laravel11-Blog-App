@@ -12,12 +12,9 @@ Route::get('post/edit/{id}',[HomeController::class,'edit'])->name('postedit');
 Route::post('post/update',[HomeController::class,'update'])->name('postupdate');
 
 
-
-
-
-Route::get('/', [PostController::class,'index'])->name('home');
-
-
+Route::get('users',[UserController::class,'show'])->name('users');
+Route::get('users/edit/{id}',[UserController::class,'edit'])->name('useredit');
+Route::get('users/delete/{id}',[UserController::class,'delete'])->name('userdelete');
 
 Route::group(['prefix'=> 'auth'], function(){
     Route::get('logout',[UserController::class,'logout'])->name('logout');
@@ -25,6 +22,7 @@ Route::group(['prefix'=> 'auth'], function(){
 });
 
 Route::controller(PostController::class)->group(function(){
+    Route::get('/', 'index')->name('home');
     Route::get('posts','index');
     Route::get('{slug}','show');
     Route::get('yorumsil/{id}','yorumsil')->name('yorumSil');
