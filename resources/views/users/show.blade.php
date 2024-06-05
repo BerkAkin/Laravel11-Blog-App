@@ -17,6 +17,8 @@
                             <th>E-Mail</th>
                             <th>Rol</th>
                             <th>Kayıt Tarihi</th>
+                            <th>Yorum Sayısı</th>
+                            <th>Makale Sayısı</th>
                             <th>İşlemler</th>
                             </tr>
                         </thead>
@@ -28,9 +30,11 @@
                                 <td>{{$user->email }}</td>
                                 <td>{{$user->role }}</td>
                                 <td>{{$user->created_at }}</td>
+                                <td>{{count($user->comments )}}</td>
+                                <td>{{count($user->posts) }}</td>
                                 <td>
                                     <div>
-                                        <a class="btn btn-info" href="{{ route('useredit',['id'=>$user->id]) }}"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-info btn-sm" href="{{ route('useredit',['id'=>$user->id]) }}"><i class="fa fa-pencil"></i></a>
                                         <a onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-sm btn-danger" href="{{ route('userdelete',['id'=>$user->id ])}}"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
