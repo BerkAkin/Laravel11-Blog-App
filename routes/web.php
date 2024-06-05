@@ -13,6 +13,8 @@ Route::post('post/update',[HomeController::class,'update'])->name('postupdate');
 
 
 
+
+
 Route::get('/', [PostController::class,'index'])->name('home');
 
 
@@ -28,6 +30,7 @@ Route::controller(PostController::class)->group(function(){
     Route::get('yorumsil/{id}','yorumsil')->name('yorumSil');
     Route::post('postcomments','postComment')->name('yorumyap');
     Route::get('getcomments','getComments')->name('yorumgetir');
+    Route::post('/ckeditorUpload','ckeditorupload')->name('ckeditor.upload');
 });
 
 
