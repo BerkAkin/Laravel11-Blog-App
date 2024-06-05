@@ -34,8 +34,22 @@ class PostController extends Controller
         if(Auth::user()->id == $comments->from_user ){
             $comments->delete();
         }
-        
+
         return redirect()->back();
+    }
+
+    public function ckeditorupload(Request $request){
+        if($request->hasFile('upload')){
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('storage/images/posts'), $fileName);
+
+            $url = asset('storage/images/posts/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
+        }
     }
 
 }
