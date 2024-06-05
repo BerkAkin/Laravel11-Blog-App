@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('photo')->default('users/avatar.jpg');
             $table->enum('role',['admin','editor','user'])->default('editor');
+            $table->enum('gender',['erkek','kadın']);
             $table->rememberToken();
             $table->timestamps();
         });
