@@ -53,7 +53,7 @@
             </div>
     
             <div class="w3-container mt-3">
-              <p style="font-size: 1.15rem">{!! $posts->body !!}</p>
+              <div style="font-size: 1.15rem" class="mb-4">{!! $posts->body !!}</div>
           </div>
         </div>
 
