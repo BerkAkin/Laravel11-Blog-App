@@ -3,11 +3,13 @@
 @section('content')
 
 <div class="col-lg-12 d-flex flex-column">
+    <a href="{{ route('usercreate') }}" class="btn btn-success fs-5">Kullanıcı Ekle</a>
     <div class="row flex-grow">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
                 <h4 class="card-title">Kullanıcılar</h4>
+                
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -15,6 +17,8 @@
                             <th>#</th>
                             <th>İsim</th>
                             <th>E-Mail</th>
+                            <th>Cinsiyet</th>
+                            <th>Yaş</th>
                             <th>Rol</th>
                             <th>Kayıt Tarihi</th>
                             <th>Yorum Sayısı</th>
@@ -28,6 +32,8 @@
                                 <td>{{$user->id }}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email }}</td>
+                                <td>{{$user->gender }}</td>
+                                <td>{{$user->age }}</td>
                                 <td>{{$user->role }}</td>
                                 <td>{{$user->created_at }}</td>
                                 <td>{{count($user->comments )}}</td>
