@@ -15,6 +15,8 @@ Route::post('post/update',[HomeController::class,'update'])->name('postupdate');
 Route::get('users',[UserController::class,'show'])->name('users');
 Route::get('users/edit/{id}',[UserController::class,'edit'])->name('useredit');
 Route::get('users/delete/{id}',[UserController::class,'delete'])->name('userdelete');
+Route::get('users/create',[UserController::class,'create'])->name('usercreate');
+Route::post('users/store',[UserController::class,'store'])->name('userstore');
 
 Route::group(['prefix'=> 'auth'], function(){
     Route::get('logout',[UserController::class,'logout'])->name('logout');
