@@ -20,9 +20,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm" style="background-color:#fc3434">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo4.png') }}" width="300px"></a>
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo4.png') }}" width="150px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -34,31 +34,31 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto ">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Giriş Yap') }}</a>
+                                    <a class="nav-link fs-5 text-white fw-bold"  href="{{ route('login') }}">{{ __('Giriş Yap') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Üye Ol') }}</a>
+                                    <a class="nav-link fs-5 text-white fw-bold" href="{{ route('register') }}">{{ __('Üye Ol') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item me-5">
-                                <a class="nav-link" href="{{ route('userhome') }}" role="button">Panel</a>
+                                <a class="nav-link fs-5 text-white fw-bold" href="{{ route('userhome') }}" role="button">Panel</a>
                             </li>
                             <li class="nav-item dropdown me-5">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white fs-5 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('userhome') }}" role="button">Panel</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">Çıkış</a>
+                                    <a class="dropdown-item fs-5 fw-bold" href="{{ route('userhome') }}" role="button">Panel</a>
+                                    <a class="dropdown-item fs-5 fw-bold" href="{{ route('logout') }}">Çıkış</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -70,31 +70,28 @@
             </div>
         </nav>
 
-        <main class="py-4" style="background: #f4f5f7">
+        <main class="py-4">
             <div class="w3-content" style="max-width: 1000px">
                 <div class="w3-row">
                   @yield('content')  
                   @isset($popular)
                     @section('right')
-                        <div class="w3-col l4">
-                            <div class="w3-card w3-margin">
-                            <div class="w3-container w3-padding">
-                                <h4>Popüler Haberler</h4>
+                        <div class="w3-col l3 w3-hide-medium w3-hide-small">
+                            <div class="text-center">
+                                <h4 class="fw-bolder" style="color: #fc3434">Popüler Haberler</h4>
                             </div>
-                            <ul class="w3-ul w3-hoverable w3-white">
+                            <ul class="w3-ul  w3-white">
                                 
                                 
                                 @foreach ($popular as $pop)
-                                    <li class="w3-padding-16 w3-hide-medium w3-hide-small">
-                                        <img src="{{ asset('storage/images/'.$pop->photo) }}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
-                                        <span class="w3-large">{!! Str::substr( $pop->title,0,10) !!}...</span><br>
-                                        <span class="w3-small">Yorum Sayısı:{{$pop->comments_count}}</span><br>
+                                    <li class="text-center">
+                                        <img style="width: 100%; height:5vw; object-fit: cover;" src="{{ asset('storage/images/'.$pop->photo) }}">
+                                        <a href="{{ $pop->slug }}" style="cursor:pointer; text-decoration:none; color:black;" onMouseOut="this.style.color='#000000'" onMouseOver="this.style.color='#d60000'" class="fs-6 mt-2 ">{!! Str::substr( $pop->title,0,30) !!}...</a>
                                     </li>  
                                 @endforeach  
                                 
         
                             </ul>
-                            </div>
                         </div>
                         @show
                     @endisset
@@ -103,8 +100,9 @@
         </main>
         
     </div>
-    <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-    </footer>
+<footer class="bottom" style="background-color: #fc3434 !important; height:80px; margin-top:300px">
+</footer>
 
-</body>
+</body>    
+
 </html>
