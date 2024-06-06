@@ -5,36 +5,43 @@
 @endsection
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('/vendors/mdi/css/materialdesignicons.min.css') }}">
 
-    <div class="w3-col l8 s12">
-
-      @foreach ($posts as $ps)
-        
-      <div class="w3-card-4 w3-margin w3-white">
-        <a href="{{ $ps->slug }}">
-          @if($ps->photo)
-            <img src="{{ asset('storage/images/'.$ps->photo) }}" style="width:100%"></a>
-          @else
-          @endif
-          
-        <div class="w3-container">
-          <h3 class="mt-3"><b><a style="text-decoration: none; color:black" href="{{ $ps->slug }}">{{ $ps->title }}</a></b></h3>
-          <h5 class="mt-3">Oluşturan: {{ $ps->author->name }} <span class="w3-opacity">{{ $ps->created_at->diffForHumans() }}</span></h5>
+    <div class="w3-col l9 s12">
+      <div class="row mb-3">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <p class="fs-3 fw-bolder" style="color:#fc3434 ">HABER AKIŞI <i class="mdi mdi-access-point"></i></p>
         </div>
-
-        <div class="w3-container mt-3">
-          <p style="font-size: 1.15rem">{!! Str::substr( $ps->body,0,250) !!}...</p>
-          <div class="w3-row mt-4 mb-2">
-            <div class="w3-col m8 s12">
-              <p ><button class="w3-button w3-padding-large w3-white w3-border"><b><a style="text-decoration: none; color: black" href="{{ $ps->slug }}">DEVAMINI OKU »</a> </b></button></p>
-            </div>
-            <div class="w3-col m4 w3-hide-small">
-              <p><span class="w3-padding-large w3-right"><b>Yorumlar</b> <span class="w3-tag"> {{ count($ps->comments) }}</span></span></p>
+        <div class="col-md-6"></div>
+      </div>
+      @foreach ($posts as $ps)
+      <div class="card " style="background: none; border-radius:0px; box-shadow:none; background-color:white">
+        <div class="row g-0 ">
+          <div class="col-md-1 d-flex align-items-center">
+            <p class="fs-6"><small class="text-body-secondary"><span class="w3-opacity">{{ $ps->created_at->diffForHumans() }}</span></small></p>
+          </div>
+          <div class="col-md-5">
+            <a href="{{ $ps->slug }}">
+              @if($ps->photo)
+                <img style="width: 100%; height: 11vw; object-fit: cover;" src="{{ asset('storage/images/'.$ps->photo) }}">
+              @endif
+             </a>  
+          </div>
+          <div class="col-md-6 ">
+            <div class="card-body">
+              <small class="text-muted">{{ $ps->category}} </small>
+              <h5 class="card-title fs-5 mt-2"> <a onMouseOut="this.style.color='#000000'" onMouseOver="this.style.color='#d60000'"  style="text-decoration: none; color:black" href="{{ $ps->slug }}">{{ $ps->title }}</a></h5>
+              <p class="card-text fs-6"><small class="text-body-secondary">{{ $ps->author->name }}</small></p>
             </div>
           </div>
         </div>
       </div>
-    @endforeach
+      <br>
+      
+      @endforeach
+
+
     </div>
 
 
