@@ -116,12 +116,14 @@
                             <span class="menu-title">Anasayfa</span>
                         </a>
                         </li>
+                        @if(Auth::user()->role =='admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users') }}">
                                 <i class="mdi menu-icon mdi-account"></i>
                                 <span class="menu-title">Kullanıcılar</span>
                             </a>
-                            </li>
+                        </li>
+                        @endif
                     </ul>
             </nav>
             <div class="main-panel">
