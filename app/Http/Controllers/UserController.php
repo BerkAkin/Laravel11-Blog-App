@@ -14,25 +14,13 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware(function($request,$next){
-            if(Auth::user()->role!= 'admin'){
-                return redirect()->back();
-            }
-            return $next($request);
-        });
     }
 
 
     public function show(){
-
-        if(Auth::user()->role == 'admin'){
-            $users = User::all();
-            return View('users.show',compact('users'));  
-        }
-        return redirect()->back();
-
+        $users = User::all();
+        return View('users.show',compact('users'));  
     }
-
 
 
     public function delete($id){
