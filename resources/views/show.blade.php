@@ -42,14 +42,13 @@
 
 
 
-    <div class="w3-col l12 s12">
-        <div class="w3-card-4 w3-margin w3-white">
-            <img src="{{ asset('storage/images/'.$posts->photo) }}" alt="Nature" style="width:100%">
+    <div class="w3-col l8 s12" >
+        <div class="w3-card-4 w3-margin w3-white" style="box-shadow:none; border:none;">
+          <img src="{{ asset('storage/images/'.$posts->photo) }}" alt="Nature" style="width:100%">
             <div class="w3-container">
               <h3 class="mt-3"><b>{{ $posts->title }}</b></h3>
-              <h5 class="mt-4">Oluşturan: {{ $posts->author->name }} 
-                <span class="w3-opacity">{{ $posts->created_at->diffForHumans() }}</span>
-              </h5>
+              <h5 class="mt-4 fw-bold text-muted">{{ $posts->author->name }} </h5>
+              <span class="w3-opacity rounded-pill bg-white">{{ $posts->created_at->format('d-m-Y H:i')}}</span>
             </div>
     
             <div class="w3-container mt-3">
