@@ -27,7 +27,6 @@ Route::middleware([CheckAdmin::class])->group(function(){
 Route::controller(HomeController::class)->group(function(){
     Route::get('userposts','userposts')->name('userposts');    
     Route::get('userhome','index')->name('userhome');
-    //Route::post('home','create');
 
     Route::get('post/create','postcreate')->name('postcreate');
     Route::post('post/store','poststore')->name('poststore');
@@ -43,6 +42,7 @@ Route::controller(HomeController::class)->group(function(){
 
 Route::controller(PostController::class)->group(function(){
     Route::get('/', 'index')->name('home');
+    
     Route::get('posts','index');
     Route::get('{slug}','show');
     
