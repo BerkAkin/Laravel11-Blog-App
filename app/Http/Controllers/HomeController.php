@@ -7,6 +7,7 @@ use App\Models\Posts;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Laravel\Facades\Image;
 
 class HomeController extends Controller
 {
@@ -55,8 +56,13 @@ class HomeController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->slug = Str::slug($request->title,'-','tr');
+
+
         if($request->hasFile('image')){
             $filename = 'postphoto-'.time().'.'.$request->file('image')->getClientOriginalExtension();
+            $filename2 = 'postphotosmall-'.time().'.'.$request->file('image')->getClientOriginalExtension();
+            $image = Image::read($request->file('image')->getRealPath());
+            $image->scale(height: 100)->save('storage/images/posts/'. $filename2);
             $path = $request->file('image')->storeAs('public/images/posts', $filename);
             $post->photo = "posts/". $filename;
         }
@@ -72,6 +78,8 @@ class HomeController extends Controller
         $post = Posts::find($id);
 
         $photo = $post->photo;
+        Storage::delete("public/images/".$photo);
+
         Storage::delete("public/images/".$photo);
 
         $post->delete();
@@ -97,7 +105,7 @@ class HomeController extends Controller
             Storage::delete("public/images/".$oldimage);
         }
         $post->save();
-        return redirect('home');
+        return redirect('/');
     }
 
 
