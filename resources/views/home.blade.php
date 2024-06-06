@@ -29,7 +29,7 @@
               <p ><button class="w3-button w3-padding-large w3-white w3-border"><b><a style="text-decoration: none; color: black" href="{{ $ps->slug }}">DEVAMINI OKU »</a> </b></button></p>
             </div>
             <div class="w3-col m4 w3-hide-small">
-              <p><span class="w3-padding-large w3-right"><b>Yorumlar  </b> <span class="w3-tag">0</span></span></p>
+              <p><span class="w3-padding-large w3-right"><b>Yorumlar</b> <span class="w3-tag"> {{ count($ps->comments) }}</span></span></p>
             </div>
           </div>
         </div>
