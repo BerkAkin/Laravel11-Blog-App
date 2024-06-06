@@ -67,7 +67,7 @@
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('userhome') }}">
                             <i class="mdi mdi-grid-large menu-icon fw-bolder text-danger"></i>
-                            <span class="menu-title text-danger fw-bolder fs-6">Anasayfa</span>
+                            <span class="menu-title text-danger fw-bolder fs-6">Profil Bilgilerim</span>
                         </a>
                         </li>
                         @if(Auth::user()->role =='admin')
