@@ -8,6 +8,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                     <h4 class="card-title">Haberler</h4>
+                                    @if(session('status'))
+                                        <p class="card-description">
+                                            <div class="aler alert-success">
+                                                {{ session('status') }}
+                                            </div>
+                                        </p>
+                                     @endif
                                     <div class="table-responsive">
                                         <table class="table table-hover">
                                         <thead>
