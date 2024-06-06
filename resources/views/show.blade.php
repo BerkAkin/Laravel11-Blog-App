@@ -71,7 +71,7 @@
                           <div class="form-group">
                               <textarea name="comment" rows="4" class="form-control no-resize" placeholder="Yorum"></textarea>
                           </div>
-                          <button type="submit" class="btn btn-block btn-primary">Yorum Yap</button>
+                          <button type="submit" class="btn btn-danger btn-block btn-primary">Yorum Yap</button>
                       </div>                                
                   </form>
 
