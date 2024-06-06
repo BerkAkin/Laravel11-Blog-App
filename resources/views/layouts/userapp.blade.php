@@ -78,7 +78,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                    <img src="images/{{ Auth::user()->photo }}" alt="image" class="img-sm profile-pic">
+                    <img src="{{ 'storage/images/'.Auth::user()->photo }}" alt="image" class="img-sm profile-pic">
                     </div>
                     <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
@@ -89,10 +89,10 @@
             </li>
             <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                 <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle" src="images/{{ Auth::user()->photo }}" alt="Profile image"> </a>
+                <img class="img-xs rounded-circle" src="{{'storage/images/'. Auth::user()->photo }}" alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
-                    <img class="img-sm rounded-circle" src="images/{{ Auth::user()->photo }}" alt="Profile image">
+                    <img class="img-sm rounded-circle" src="{{'storage/images/'. Auth::user()->photo}}" alt="Profile image">
                     <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name}}</p>
                     <p class="fw-light text-muted mb-0">{{ Auth::user()->email }}</p>
                 </div>
