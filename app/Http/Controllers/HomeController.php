@@ -18,6 +18,12 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function($request,$next){
+            if(Auth::user()->role!='admin' && Auth::user()->role!='editor'){
+                return redirect('/');
+            }
+            return $next($request);
+        });
     }
 
     /**
@@ -25,14 +31,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {   
-        $posts = Posts::orderBy('created_at', 'DESC')->get();
-        return view('users.home',compact('posts'));
-    }
 
-    public function userposts()
-    {   
+
+
+
+    public function userposts(){   
         $posts = Posts::orderBy('created_at', 'DESC')->get();
         return view('users.posts',compact('posts'));
     }
@@ -57,10 +60,6 @@ class HomeController extends Controller
         $post->author_id = Auth::user()->id;
         $post->save();
         return redirect()->route('userposts')->with('status','Haber Başarıyla Kaydedildi');
-    }
-
-    public function create(Request $request){
-
     }
 
     public function delete($id){
