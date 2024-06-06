@@ -56,7 +56,7 @@ class HomeController extends Controller
         }
         $post->author_id = Auth::user()->id;
         $post->save();
-        return redirect()->route('userposts');
+        return redirect()->route('userposts')->with('status','Haber Başarıyla Kaydedildi');
     }
 
     public function create(Request $request){
