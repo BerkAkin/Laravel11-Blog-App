@@ -24,35 +24,34 @@
             </div>
             <div>
                 <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="{{ asset('images/logo5.png') }}" alt="logo" />
+                    <img src="{{ asset('images/logo4inv.png') }}" alt="logo" />
                 </a>
             </div>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-top">
             <ul class="navbar-nav">
             <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                <h1 class="welcome-text">Hoş Geldiniz, <span class="text-black fw-bold">{{ Auth::user()->name }}</span></h1>
+                <h1 class="welcome-text text-white">Hoş Geldiniz, <span class="text-white fw-bold">{{ Auth::user()->name }}</span></h1>
             </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-            <li class="nav-item d-none d-lg-block">
-                <div id="datepicker-popup" class="input-group date datepicker navbar-date-picker">
-                <span class="input-group-addon input-group-prepend border-right">
-                </span>
-                <input type="text" class="form-control">
+            <li class="nav-item d-none d-lg-block ">
+                <div id="datepicker-popup" class="fw-bold input-group date datepicker navbar-date-picker">
+                    <span class="input-group-addon input-group-prepend fw-bold border-right"></span>
+                    <input type="text" class="form-control fw-bold text-center">
                 </div>
             </li>
             <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                 <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                <img class="img-xs rounded-circle" src="{{'storage/images/'. Auth::user()->photo }}" alt="Profile image"> </a>
+                <img class="img-xs rounded-circle" src="{{'storage/images/'. Auth::user()->photo }}"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                 <div class="dropdown-header text-center">
                     <img class="img-sm rounded-circle" src="{{'storage/images/'. Auth::user()->photo}}" alt="Profile image">
                     <p class="mb-1 mt-3 font-weight-semibold">{{ Auth::user()->name}}</p>
                     <p class="fw-light text-muted mb-0">{{ Auth::user()->email }}</p>
                 </div>
-                <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i>Profilim</a>
-                <a class="dropdown-item" href="{{ route('logout') }}"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Çıkış</a>
+                <a class="dropdown-item" href="/userhome"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2 text-danger"></i>Profilim</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"><i class="dropdown-item-icon mdi mdi-power text-primary me-2 text-danger"></i>Çıkış</a>
                 </div>
             </li>
             </ul>
@@ -67,23 +66,23 @@
                     <ul class="nav">
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('userhome') }}">
-                            <i class="mdi mdi-grid-large menu-icon"></i>
-                            <span class="menu-title">Anasayfa</span>
+                            <i class="mdi mdi-grid-large menu-icon fw-bolder text-danger"></i>
+                            <span class="menu-title text-danger fw-bolder fs-6">Anasayfa</span>
                         </a>
                         </li>
                         @if(Auth::user()->role =='admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users') }}">
-                                <i class="mdi menu-icon mdi-account"></i>
-                                <span class="menu-title">Kullanıcılar</span>
+                                <i class="mdi menu-icon mdi-account fw-bolder text-danger"></i>
+                                <span class="menu-title text-danger fw-bolder fs-6">Kullanıcılar</span>
                             </a>
                         </li>
                         @endif
                         @if(Auth::user()->role !='user')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('userposts') }}">
-                                <i class="mdi menu-icon mdi-application"></i>
-                                <span class="menu-title">Haberler</span>
+                                <i class="mdi menu-icon mdi-application text-danger fw-bolder"></i>
+                                <span class="menu-title text-danger fw-bolder fs-6">Haberler</span>
                             </a>
                         </li>
                         @endif
