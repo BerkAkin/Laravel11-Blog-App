@@ -17,6 +17,7 @@
     @yield('css')
     <link rel="stylesheet" href="{{ asset('/vendors/ti-icons/css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div id="app">
@@ -81,17 +82,22 @@
                                 <h4 class="fw-bolder" style="color: #fc3434">Popüler Haberler</h4>
                             </div>
                             <ul class="w3-ul  w3-white">
-                                
-                                
                                 @foreach ($popular as $pop)
                                     <li class="text-center">
                                         <img style="width: 100%; height:5vw; object-fit: cover;" src="{{ asset('storage/images/'.$pop->photo) }}">
                                         <a href="{{ $pop->slug }}" style="cursor:pointer; text-decoration:none; color:black;" onMouseOut="this.style.color='#000000'" onMouseOver="this.style.color='#d60000'" class="fs-6 mt-2 ">{!! Str::substr( $pop->title,0,30) !!}...</a>
                                     </li>  
                                 @endforeach  
-                                
-        
                             </ul>
+                        <div class="row w3-hide-medium w3-hide-small">
+                            <div class="text-center mt-5">
+                                <h4 class="fw-bolder" style="color: #fc3434">Bizi Takip Edin</h4>
+                            </div>
+                            <div class="col-12 d-flex justify-content-around mt-3">
+                                <a class="btn btn-sm" style="background-color: #fc3434;"><i class="fa-brands fa-youtube text-light fs-4"></i></i></a>
+                                <a class="btn btn-sm" style="background-color: #fc3434;"><i class="fa-brands fa-instagram text-light fs-4"></i></a>
+                                <a class="btn btn-sm" style="background-color: #dddddd;"><i class="fa-brands fa-x-twitter fs-4"></i></a>
+                            </div>
                         </div>
                         @show
                     @endisset
