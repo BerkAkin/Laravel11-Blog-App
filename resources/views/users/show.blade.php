@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="col-lg-12 d-flex flex-column">
-    <a href="{{ route('usercreate') }}" class="btn btn-success fs-5">Kullanıcı Ekle</a>
+    <a href="{{ route('usercreate') }}" class="btn btn-warning fw-bold fs-5">Kullanıcı Ekle</a>
     <div class="row flex-grow">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
@@ -11,7 +11,7 @@
                 <h4 class="card-title">Kullanıcılar</h4>
                 @if(session('status'))
                     <p class="card-description">
-                        <div class="aler alert-success">
+                        <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     </p>
