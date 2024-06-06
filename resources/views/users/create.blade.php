@@ -23,14 +23,23 @@
                             <div class="form-group">
                               <label for="exampleInputUsername1">İsim</label>
                               <input type="text" class="form-control form-control-lg" name="name" placeholder="İsim">
+                              @error('name')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
                             </div>
                             <div class="form-group">
                                 <label>E-Mail</label>
                                 <input type="mail" class="form-control" name="email" rows="8"  placeholder="email"></input>
+                                @error('email')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
                               </div>
                               <div class="form-group">
                                 <label>Parola</label>
                                 <input type="password" class="form-control form-control-lg" name="password" placeholder="Parola">
+                                @error('password')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
                               </div>
                               <div class="form-group">
                                 <label >Rol</label>
@@ -39,10 +48,16 @@
                                     <option value="user">User</option>
                                     <option value="editor">Editor</option>
                                 </select>
+                                @error('role')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
                               </div>
                               <div class="form-group">
                                 <label>Yaş</label>
                                 <input type="text" class="form-control form-control-lg"  name="age" placeholder="Yaş">
+                                @error('age')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
                               </div>
                               <div class="form-group">
                                 <label>Cinsiyet</label>
@@ -50,6 +65,9 @@
                                     <option value="erkek">Erkek</option>
                                     <option value="kadın">Kadın</option>
                                 </select>
+                                @error('gender')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                              @enderror
                               </div>
                               <div class="form-group">
                                 <label>Fotoğraf</label>
