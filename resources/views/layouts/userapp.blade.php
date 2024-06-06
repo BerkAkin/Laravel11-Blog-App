@@ -78,7 +78,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                    <img src="{{ 'storage/images/'.Auth::user()->photo }}" alt="image" class="img-sm profile-pic">
+                    {{-- <img src="{{ 'storage/images/'.Auth::user()->photo }}" alt="image" class="img-sm profile-pic"> --}}
                     </div>
                     <div class="preview-item-content flex-grow py-2">
                     <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
