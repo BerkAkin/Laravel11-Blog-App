@@ -3,8 +3,8 @@
 @endsection
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center pt-5 mt-5">
+        <div class="col-md-8 pt-5 mt-5">
             <div class="row w-100 mx-0 shadow">
                 <div class="col-lg-12 mx-auto">
                 <div class="auth-form-light text-left py-5 px-4 px-sm-5">
@@ -65,7 +65,7 @@
                       </div>
 
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-danger">
                             {{ __('Üye Ol') }}
                         </button>
                         </div>
