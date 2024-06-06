@@ -47,6 +47,22 @@
                         <input placeholder="Şifre (Tekrar)" id="password-confirm" type="password" class="form-control form-control-lg" name="password_confirmation" required autocomplete="new-password">
                     </div>
 
+                    <div class="form-group">
+                        <input required type="number" value="{{ old('age') }}" class="form-control form-control-lg" id="age" name="age" placeholder="Yaş">
+                        @error('age')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                      @enderror
+                      </div>
+
+                      <div class="form-group">
+                        <select class="form-control" value="{{ old('gender') }}" id="gender" name="gender">
+                            <option value="erkek">Erkek</option>
+                            <option value="kadın">Kadın</option>
+                        </select>
+                        @error('gender')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                      @enderror
+                      </div>
 
                     <div class="mt-3">
                         <button type="submit" class="btn btn-primary">
