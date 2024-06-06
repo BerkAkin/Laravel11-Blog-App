@@ -29,6 +29,24 @@
                   <textarea class="form-control" id="editor" name="body" rows="8"  placeholder="İçerik"></textarea>
                 </div>
 
+                <div class="form-group">
+                  <label for="exampleInputUsername1">Kategori</label>
+                  <select class="form-control form-control-lg" name="category">
+                      <option value="Bilim">Bilim</option>
+                      <option value="Teknoloji">Teknoloji</option>
+                      <option value="Eğitim">Eğitim</option>
+                      <option value="İnternet">İnternet</option>
+                      <option value="Mobil">Mobil</option>
+                      <option value="Otomobil">Otomobil</option>
+                      <option value="Sektörel">Sektörel</option>
+                      <option value="Sinema ve Dizi">Sinema ve Dizi</option>
+                      <option value="Uzay">Uzay</option>
+                      <option value="Yaşam">Yaşam</option>
+                      <option value="Yiyecek">Yiyecek</option>
+                      <option value="Sağlık">Sağlık</option>
+                  </select>
+                </div>
+
 
                 <div class="form-group">
                     <label>Fotoğraf</label>
