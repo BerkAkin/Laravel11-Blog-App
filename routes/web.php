@@ -19,7 +19,7 @@ Route::get('users/create',[UserController::class,'create'])->name('usercreate');
 Route::post('users/store',[UserController::class,'store'])->name('userstore');
 
 Route::group(['prefix'=> 'auth'], function(){
-    Route::get('logout',[UserController::class,'logout'])->name('logout');
+    Route::get('logout',[PostController::class,'logout'])->name('logout');
     Auth::routes();
 });
 
