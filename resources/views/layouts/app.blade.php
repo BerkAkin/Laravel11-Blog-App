@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ "EnyThing" }}</title>
+    <title>{{ "sTalker" }}</title>
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm" style="background-color:#fc3434">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo4.png') }}" width="150px"></a>
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo4.png') }}" width="120px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -71,15 +71,16 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
+            @yield('top')
             <div class="w3-content" style="max-width: 1000px">
                 <div class="w3-row">
                   @yield('content')  
                   @isset($popular)
                     @section('right')
                         <div class="w3-col l3 w3-hide-medium w3-hide-small">
-                            <div class="text-center">
-                                <h4 class="fw-bolder" style="color: #fc3434">Popüler Haberler</h4>
+                            <div class="">
+                                <h4 class="fw-bold fs-4" style="color: #fc3434">Trend Haberler</h4>
                             </div>
                             <ul class="w3-ul  w3-white">
                                 @foreach ($popular as $pop)
@@ -91,7 +92,7 @@
                             </ul>
                         <div class="row w3-hide-medium w3-hide-small">
                             <div class="text-center mt-5">
-                                <h4 class="fw-bolder" style="color: #fc3434">Bizi Takip Edin</h4>
+                                <h4 class="fw-bolder" style="color: #fc3434">Bizi Takip Et</h4>
                             </div>
                             <div class="col-12 d-flex justify-content-around mt-3">
                                 <a class="btn btn-sm" style="background-color: #fc3434;"><i class="fa-brands fa-youtube text-light fs-4"></i></i></a>
