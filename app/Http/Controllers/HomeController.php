@@ -31,7 +31,17 @@ class HomeController extends Controller
         return view('users.home',compact('posts'));
     }
 
-    public function create(Request $request){
+    public function userposts()
+    {   
+        $posts = Posts::orderBy('created_at', 'DESC')->get();
+        return view('users.posts',compact('posts'));
+    }
+
+    public function postcreate(){
+        return view('users.postscreate');
+    }
+
+    public function poststore(Request $request){
         $post = new Posts();
         $post->title = $request->title;
         $post->body = $request->body;
@@ -46,7 +56,11 @@ class HomeController extends Controller
         }
         $post->author_id = Auth::user()->id;
         $post->save();
-        return redirect('home');
+        return redirect()->route('userposts');
+    }
+
+    public function create(Request $request){
+
     }
 
     public function delete($id){
@@ -56,7 +70,7 @@ class HomeController extends Controller
         Storage::delete("public/images/".$photo);
 
         $post->delete();
-        return redirect('home');
+        return redirect()->back();
     }
 
     public function edit($id){
@@ -81,6 +95,20 @@ class HomeController extends Controller
         return redirect('home');
     }
 
+
+    public function ckeditorupload(Request $request){
+        if($request->hasFile('upload')){
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+
+            $request->file('upload')->move(public_path('storage/images/posts'), $fileName);
+
+            $url = asset('storage/images/posts/' . $fileName);
+            return response()->json(['fileName' => $fileName, 'uploaded'=> 1, 'url' => $url]);
+        }
+    }
     
 
 }
