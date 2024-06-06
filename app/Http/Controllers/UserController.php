@@ -14,20 +14,26 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware(function($request,$next){
+            if(Auth::user()->role!= 'admin'){
+                return redirect()->back();
+            }
+            return $next($request);
+        });
     }
 
 
     public function show(){
-        $users = User::all();
-        return View('users.show',compact('users'));
+
+        if(Auth::user()->role == 'admin'){
+            $users = User::all();
+            return View('users.show',compact('users'));  
+        }
+        return redirect()->back();
+
     }
 
-    public function logout(Request $request){
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return Redirect('/');
-    }
+
 
     public function delete($id){
         $user = User::find($id);
@@ -64,7 +70,7 @@ class UserController extends Controller
         $hasFile= $request->hasFile('photo');
         if($hasFile){
             $filename = 'userphoto-'.time().'.'.$request->file('photo')->getClientOriginalExtension();
-            $path = $request->file('photo')->storeAs('public/images/users', $filename);
+            $path = $request->file('photo')->storeAs('public/images/user', $filename);
             $user->photo = "user/". $filename;
         }
         $user->save();
