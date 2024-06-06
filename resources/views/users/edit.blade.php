@@ -33,6 +33,23 @@
                                   <textarea class="form-control form-control-lg" id="editor"  value="{{ $post->body }}"   rows="8" name="body" placeholder="İçerik"> {{ $post->body }}</textarea>
                                 </div>
                                 <div class="form-group">
+                                    <label for="exampleInputUsername1">Kategori</label>
+                                    <select class="form-control form-control-lg" name="category">
+                                        <option value="Bilim">Bilim</option>
+                                        <option value="Teknoloji">Teknoloji</option>
+                                        <option value="Eğitim">Eğitim</option>
+                                        <option value="İnternet">İnternet</option>
+                                        <option value="Mobil">Mobil</option>
+                                        <option value="Otomobil">Otomobil</option>
+                                        <option value="Sektörel">Sektörel</option>
+                                        <option value="Sinema ve Dizi">Sinema ve Dizi</option>
+                                        <option value="Uzay">Uzay</option>
+                                        <option value="Yaşam">Yaşam</option>
+                                        <option value="Yiyecek">Yiyecek</option>
+                                        <option value="Sağlık">Sağlık</option>
+                                    </select>
+                                  </div>
+                                <div class="form-group">
                                     <label>Fotoğraf</label>
                                     <div class="input-group col-xs-12">
                                         <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="form-control file-upload-info">
