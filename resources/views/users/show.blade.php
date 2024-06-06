@@ -9,7 +9,13 @@
             <div class="card">
                 <div class="card-body">
                 <h4 class="card-title">Kullanıcılar</h4>
-                
+                @if(session('status'))
+                                    <p class="card-description">
+                                        <div class="aler alert-success">
+                                            {{ session('status') }}
+                                        </div>
+                                    </p>
+                                    @endif
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -43,6 +49,7 @@
                                         <a class="btn btn-info btn-sm" href="{{ route('useredit',['id'=>$user->id]) }}"><i class="fa fa-pencil"></i></a>
                                         <a onclick="return confirm('Silmek istediğinize emin misiniz?')" class="btn btn-sm btn-danger" href="{{ route('userdelete',['id'=>$user->id ])}}"><i class="fa fa-trash"></i></a>
                                     </div>
+                                    
                                 </td>
                             </tr>
                             @endforeach
