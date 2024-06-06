@@ -12,10 +12,7 @@ class PostController extends Controller
 {
     public function index(){
         $posts = Posts::orderBy('created_at', 'DESC')->get();
-        $popular = Posts::with('comments')
-            ->withCount('comments')
-            ->orderBy('comments_count', 'desc')
-            ->get();
+        $popular = Posts::with('comments')->withCount('comments')->orderBy('comments_count', 'desc')->take(5)->get();
         return view("home",compact('posts','popular'));
     }
 
