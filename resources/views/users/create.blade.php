@@ -22,28 +22,28 @@
                             @csrf
                             <div class="form-group">
                               <label for="exampleInputUsername1">İsim</label>
-                              <input type="text" class="form-control form-control-lg" name="name" placeholder="İsim">
+                              <input type="text" class="form-control form-control-lg" name="name" value="{{ old('name') }}" required placeholder="İsim">
                               @error('name')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                               @enderror
                             </div>
                             <div class="form-group">
                                 <label>E-Mail</label>
-                                <input type="mail" class="form-control" name="email" rows="8"  placeholder="email"></input>
+                                <input required type="mail" value="{{ old('email') }}" class="form-control" name="email" rows="8"  placeholder="email"></input>
                                 @error('email')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                               @enderror
                               </div>
                               <div class="form-group">
                                 <label>Parola</label>
-                                <input type="password" class="form-control form-control-lg" name="password" placeholder="Parola">
+                                <input required type="password"  class="form-control form-control-lg" name="password" placeholder="Parola">
                                 @error('password')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                               @enderror
                               </div>
                               <div class="form-group">
                                 <label >Rol</label>
-                                <select class="form-control" name="role">
+                                <select class="form-control" value="{{ old('role') }}" name="role">
                                     <option value="admin">Admin</option>
                                     <option value="user">User</option>
                                     <option value="editor">Editor</option>
@@ -54,14 +54,14 @@
                               </div>
                               <div class="form-group">
                                 <label>Yaş</label>
-                                <input type="text" class="form-control form-control-lg"  name="age" placeholder="Yaş">
+                                <input required type="text" value="{{ old('age') }}" class="form-control form-control-lg"  name="age" placeholder="Yaş">
                                 @error('age')
                                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                               @enderror
                               </div>
                               <div class="form-group">
                                 <label>Cinsiyet</label>
-                                <select class="form-control" name="gender">
+                                <select class="form-control" value="{{ old('gender') }}" name="gender">
                                     <option value="erkek">Erkek</option>
                                     <option value="kadın">Kadın</option>
                                 </select>
