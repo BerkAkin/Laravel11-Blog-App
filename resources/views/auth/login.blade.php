@@ -4,8 +4,8 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+    <div class="row justify-content-center pt-5 mt-5">
+        <div class="col-md-8 pt-5 mt-5">
         <div class="row w-100 mx-0 shadow">
           <div class="col-lg-12 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
@@ -31,14 +31,7 @@
                     @enderror
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
-                  <div class="form-check">
-
-
-                    <label class="form-check-label text-muted" for="remember">                    
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    Beni hatırla</label>
-
-                  </div>
+                  <div class="form-check"></div>
                   @if (Route::has('password.request'))
                   <a class="auth-link text-black" href="{{ route('password.request') }}">
                       {{ __('Şifremi unuttum') }}
@@ -46,7 +39,7 @@
               @endif
                 </div>
                 <div class="mt-3">
-                    <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+                    <button type="submit" class="btn btn-block btn-danger btn-lg font-weight-medium auth-form-btn">
                         {{ __('Giriş') }}
                     </button>
                   </div>
