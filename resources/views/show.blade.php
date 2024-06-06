@@ -87,7 +87,7 @@
                 <ul class="comment-reply ">
                     <li class="row">
                         <div class="col-md-2 col-4">
-                          <img class="img-fluid" src="images/{{ $comment->author->photo }}" alt="Awesome Image">
+                          <img class="img-fluid" src="{{ asset('storage/images/'. $comment->author->photo ) }}" alt="Awesome Image">
                         </div>
                         <div class="col-md-10 col-8 p-l-0 p-r0 ">
                           <div class="row ">
@@ -95,7 +95,7 @@
                               <h5>{{ $comment->author->name }}</h5>
                             </div>
                             <div class="col-6 d-flex justify-content-end">
-                              @if(@Auth::user()->id == $comment->from_user)
+                              @if(@Auth::user()->id == $comment->from_user or @Auth::user()->role == 'admin')
                                 <a class="m-b-0 btn btn-sm btn-danger" href="{{ route('yorumSil',['id'=>$comment->id]) }}">Yorumu Sil</a>
                               @endif
                             </div>
