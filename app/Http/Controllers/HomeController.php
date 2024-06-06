@@ -56,6 +56,7 @@ class HomeController extends Controller
         $post->title = $request->title;
         $post->body = $request->body;
         $post->slug = Str::slug($request->title,'-','tr');
+        $post->category = $request->category;
 
 
         if($request->hasFile('image')){
@@ -96,6 +97,7 @@ class HomeController extends Controller
         $post = Posts::find($id);
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->category = $request->category;
         $hasFile = $request->hasFile('image');
         if($hasFile){
             $filename = 'postphoto-'.time().'.'.$request->file('image')->getClientOriginalExtension();
