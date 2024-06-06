@@ -35,9 +35,15 @@ class HomeController extends Controller
 
 
 
-    public function userposts(){   
-        $posts = Posts::orderBy('created_at', 'DESC')->get();
-        return view('users.posts',compact('posts'));
+    public function userposts(){ 
+        if(Auth::user()->role =='admin'){
+            $posts = Posts::orderBy('created_at', 'DESC')->get();
+            return view('users.posts',compact('posts'));
+        }
+        else{
+            $posts = Posts::where('author_id','=', Auth::user()->id)->orderBy('created_at','DESC')->get();
+            return view('users.posts',compact('posts'));
+        }
     }
 
     public function postcreate(){
