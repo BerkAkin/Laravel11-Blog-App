@@ -124,6 +124,14 @@
                             </a>
                         </li>
                         @endif
+                        @if(Auth::user()->role !='user')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('userposts') }}">
+                                <i class="mdi menu-icon mdi-application"></i>
+                                <span class="menu-title">Haberler</span>
+                            </a>
+                        </li>
+                        @endif
                     </ul>
             </nav>
             <div class="main-panel">
