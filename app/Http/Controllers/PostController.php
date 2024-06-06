@@ -11,9 +11,18 @@ use App\Models\Comments;
 class PostController extends Controller
 {
     public function index(){
-        $posts = Posts::orderBy('created_at', 'DESC')->get();
+        $count = Posts::count();
+        $skip = 3;
+        $limit = $count - $skip; 
+        if($limit<=0){
+            $limit = 4;
+        }
+        $posts = Posts::orderBy('created_at', 'DESC')->skip($skip)->take($limit)->get();
+        $posts->shift();
+
+        $ilkdort = Posts::orderBy('created_at', 'DESC')->take(4)->get();
         $popular = Posts::with('comments')->withCount('comments')->orderBy('comments_count', 'desc')->take(5)->get();
-        return view("home",compact('posts','popular'));
+        return view("home",compact('posts','popular','ilkdort'));
     }
 
     public function show($slug){
