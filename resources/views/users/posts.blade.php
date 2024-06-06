@@ -2,7 +2,7 @@
 
 @section('content')
        <div class="col-lg-12 d-flex flex-column">
-        <a href="{{ route('postcreate') }}" class="btn btn-success fs-5">Haber Ekle</a>
+        <a href="{{ route('postcreate') }}" class="btn btn-warning fw-bold fs-5">Haber Ekle</a>
                         <div class="row flex-grow">
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card">
@@ -10,7 +10,7 @@
                                     <h4 class="card-title">Haberler</h4>
                                     @if(session('status'))
                                         <p class="card-description">
-                                            <div class="aler alert-success">
+                                            <div class="alert alert-success">
                                                 {{ session('status') }}
                                             </div>
                                         </p>
@@ -21,6 +21,7 @@
                                             <tr>
                                             <th>#</th>
                                             <th>Başlık</th>
+                                            <th>Kategori</th>
                                             <th>Yazar</th>
                                             <th>Tarih</th>
                                             <th>Habere Git</th>
@@ -31,7 +32,8 @@
                                             @foreach ( $posts as $post)
                                             <tr>
                                                 <td>{{$post->id }}</td>
-                                                <td>{{Str::substr( $post->title,0,130) }}...</td>
+                                                <td>{{Str::substr( $post->title,0,120) }}...</td>
+                                                <td>{{$post->category }}</td>
                                                 <td>{{$post->author->name }}</td>
                                                 <td>{{$post->created_at }}</td>
                                                 <td><a href="{{$post->slug}}">{{Str::substr( $post->slug,0,20)}}...</a></td>
