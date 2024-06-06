@@ -27,32 +27,30 @@ Route::middleware([CheckAdmin::class])->group(function(){
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('userposts','userposts')->name('userposts');
-
-    
-
     Route::get('post/create','postcreate')->name('postcreate');
     Route::post('post/store','poststore')->name('poststore');
     Route::get('post/delete/{id}','delete')->name('postdelete');
     Route::get('post/edit/{id}','edit')->name('postedit');
     Route::post('post/update','update')->name('postupdate');
-    
     Route::post('/ckeditorUpload','ckeditorupload')->name('ckeditor.upload');
 });
 
 
-Route::get('userhome',[UserRoleController::class,'index'])->name('userhome');
+
+
+Route::controller(UserRoleController::class)->group(function(){
+    Route::get('yorumsil/{id}','yorumsil')->name('yorumSil');
+    Route::get('userhome','index')->name('userhome');
+    Route::post('postcomments','postComment')->name('yorumyap');
+});
+
+
 
 Route::controller(PostController::class)->group(function(){
     Route::get('/', 'index')->name('home');
-    
     Route::get('posts','index');
     Route::get('{slug}','show');
-    
-    Route::post('postcomments','postComment')->name('yorumyap');
     Route::get('getcomments','getComments')->name('yorumgetir');
-    Route::get('yorumsil/{id}','yorumsil')->name('yorumSil');
-
-    
 });
 
 
