@@ -50,10 +50,10 @@ class UserController extends Controller
             'email'=>['required', 'string', 'email', 'max:255', 'unique:users'],
             'password'=>['required', 'string', 'min:8'],
             'role'=>['required'],
-            'age'=>['required', 'min:18'],
+            'age'=>['required'],
             'gender'=>['required'],
         ]);
-        
+
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -68,7 +68,7 @@ class UserController extends Controller
             $user->photo = "user/". $filename;
         }
         $user->save();
-        return redirect()->back();
+        return redirect('users')->with('status','Kullanıcı Ekleme Başarılı');
 
     }
 }
