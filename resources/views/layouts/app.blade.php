@@ -22,7 +22,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm" style="background-color:#fc3434">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo4.png') }}" width="120px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -30,36 +30,45 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto ms-5  w3-hide-medium w3-hide-small">
 
+                        <li class="nav-item">
+                            <a class="nav-link fs-6 text-white fw-bold ms-5" href="{{ url('/') }}">Anasayfa</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link fs-6 text-white fw-bold ms-3" href="">Kategoriler</a>
+                        </li>
+
+                                
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto ">
+                    <ul class="navbar-nav ms-auto me-4">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link fs-5 text-white fw-bold"  href="{{ route('login') }}">{{ __('Giriş Yap') }}</a>
+                                    <a class="nav-link fs-6 text-white fw-bold"  href="{{ route('login') }}">{{ __('Giriş Yap') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link fs-5 text-white fw-bold" href="{{ route('register') }}">{{ __('Üye Ol') }}</a>
+                                    <a class="nav-link fs-6 text-white fw-bold" href="{{ route('register') }}">{{ __('Üye Ol') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item me-5">
-                                <a class="nav-link fs-5 text-white fw-bold" href="{{ route('userhome') }}" role="button">Panel</a>
+                                <a class="nav-link fs-6 text-white fw-bold" href="{{ route('userhome') }}" role="button">Panel</a>
                             </li>
                             <li class="nav-item dropdown me-5">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white fs-5 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white fs-6 fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item fs-5 fw-bold" href="{{ route('userhome') }}" role="button">Panel</a>
-                                    <a class="dropdown-item fs-5 fw-bold" href="{{ route('logout') }}">Çıkış</a>
+                                    <a class="dropdown-item fs-6 fw-bold" href="{{ route('userhome') }}" role="button">Panel</a>
+                                    <a class="dropdown-item fs-6 fw-bold" href="{{ route('logout') }}">Çıkış</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
