@@ -41,7 +41,7 @@
     transition: 0.5s;
   }
 </style>
-<div class=" w3-hide-medium w3-hide-small container-fluid mb-5 p-1">
+<div class=" w3-hide-medium w3-hide-small container-fluid mb-5 p-1 bg-secondary">
   <div class="row p-1">
         <div class="col-md-6 pe-0 ">
             <div class="">
@@ -141,14 +141,14 @@
           <div class="col-md-1 d-flex align-items-center">
             <p class="fs-6"><small class="text-body-secondary"><span class="w3-opacity">{{ $ps->created_at->diffForHumans() }}</span></small></p>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-4">
             <a href="{{ $ps->slug }}">
               @if($ps->photo)
-                <img style="width: 100%; height: 11vw; object-fit: cover;" src="{{ asset('storage/images/'.$ps->photo) }}">
+                <img style="width: 100%; height: 9vw; object-fit: cover;" src="{{ asset('storage/images/'.$ps->photo) }}">
               @endif
              </a>  
           </div>
-          <div class="col-md-6 ">
+          <div class="col-md-7 ">
             <div class="card-body">
               <small class="text-muted">{{ $ps->category}} </small>
               <h5 class="card-title fs-5 mt-2"> <a onMouseOut="this.style.color='#000000'" onMouseOver="this.style.color='#d60000'"  style="text-decoration: none; color:black" href="{{ $ps->slug }}">{{ $ps->title }}</a></h5>
