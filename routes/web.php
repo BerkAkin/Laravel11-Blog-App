@@ -5,6 +5,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckAdmin;
+use App\Http\Controllers\UserRoleController;
 
 
 Route::group(['prefix'=> 'auth'], function(){
@@ -25,8 +26,9 @@ Route::middleware([CheckAdmin::class])->group(function(){
 
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('userposts','userposts')->name('userposts');    
-    Route::get('userhome','index')->name('userhome');
+    Route::get('userposts','userposts')->name('userposts');
+
+    
 
     Route::get('post/create','postcreate')->name('postcreate');
     Route::post('post/store','poststore')->name('poststore');
@@ -38,7 +40,7 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 
-
+Route::get('userhome',[UserRoleController::class,'index'])->name('userhome');
 
 Route::controller(PostController::class)->group(function(){
     Route::get('/', 'index')->name('home');
