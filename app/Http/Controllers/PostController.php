@@ -12,7 +12,11 @@ class PostController extends Controller
 {
     public function index(){
         $posts = Posts::orderBy('created_at', 'DESC')->get();
-        return view("home",compact('posts'));
+        $popular = Posts::with('comments')
+            ->withCount('comments')
+            ->orderBy('comments_count', 'desc')
+            ->get();
+        return view("home",compact('posts','popular'));
     }
 
     public function show($slug){
