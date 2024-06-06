@@ -41,7 +41,7 @@
     transition: 0.5s;
   }
 </style>
-<div class="container-fluid mb-5 p-1">
+<div class=" w3-hide-medium w3-hide-small container-fluid mb-5 p-1">
   <div class="row p-1">
         <div class="col-md-6 pe-0 ">
             <div class="">
@@ -79,7 +79,7 @@
         @endisset
 
         
-        <div class="col-md-3 ps-1">
+        <div class="col-md-3 pe-3 ps-1">
           @isset($ilkdort[2])
           <div>
                   <div style="height:185px; background: linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url('{{ asset('storage/images/'.$ilkdort[2]->photo) }}');">
