@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->boolean('active')->default(1);
             $table->string('photo');
+            $table->enum('category',['Bilim','Donanım','Eğitim','İnternet','Mobil','Otomobil','Sektörel','Sinema ve Dizi','Uzay','Yaşam','Yiyecek','Sağlık'])->default('Yaşam');
             $table->timestamps();
         });
     }
