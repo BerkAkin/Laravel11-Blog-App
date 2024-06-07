@@ -21,7 +21,8 @@ Route::middleware([CheckAdmin::class])->group(function(){
     Route::get('users/delete/{id}',[UserController::class,'delete'])->name('userdelete');
     Route::get('users/create',[UserController::class,'create'])->name('usercreate');
     Route::post('users/store',[UserController::class,'store'])->name('userstore');
-
+    Route::post( '/search', [UserController::class,'search'])->name('usersearch');
+    Route::post( '/searchpost', [PostController::class,'search'])->name('searchpost');
 });
 
 
@@ -34,6 +35,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('post/edit/{id}','edit')->name('postedit');
     Route::post('post/update','update')->name('postupdate');
     Route::post('/ckeditorUpload','ckeditorupload')->name('ckeditor.upload');
+  
+
 });
 
 
@@ -51,7 +54,8 @@ Route::controller(PostController::class)->group(function(){
     Route::get('/', 'index')->name('home');
     Route::get('posts','index');
     Route::get('{slug}','show');
-    Route::get('getcomments','getComments')->name('yorumgetir');
+    Route::get('getcomments','getComments')->name('yorumgetir'); 
+   
 });
 
 
