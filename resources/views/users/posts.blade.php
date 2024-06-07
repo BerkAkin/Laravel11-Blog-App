@@ -8,6 +8,9 @@
                                 <div class="card">
                                     <div class="card-body">
                                     <h4 class="card-title">Haberler</h4>
+                                    <div class="mb-5">
+                                        {{ $posts->links() }}  
+                                      </div>
                                     @if(session('status'))
                                         <p class="card-description">
                                             <div class="alert alert-success">
@@ -32,7 +35,7 @@
                                             @foreach ( $posts as $post)
                                             <tr>
                                                 <td>{{$post->id }}</td>
-                                                <td>{{Str::substr( $post->title,0,120) }}...</td>
+                                                <td>{{Str::substr( $post->title,0,100) }}...</td>
                                                 <td>{{$post->category }}</td>
                                                 <td>{{$post->author->name }}</td>
                                                 <td>{{$post->created_at }}</td>
