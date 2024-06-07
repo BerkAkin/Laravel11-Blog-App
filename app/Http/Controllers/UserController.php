@@ -31,7 +31,25 @@ class UserController extends Controller
 
     public function edit($id){
         $user = User::find($id);
-        return view('users.edit',compact('user'));
+        return view('users.useredit',compact('user'));
+    }
+
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+        $user->age= $request->age;
+        $user->gender = $request->gender;
+
+        $hasFile= $request->hasFile('photo');
+        if($hasFile){
+            $filename = 'userphoto-'.time().'.'.$request->file('photo')->getClientOriginalExtension();
+            $path = $request->file('photo')->storeAs('public/images/user', $filename);
+            $user->photo = "user/". $filename;
+        }
+        $user->save();
+        return redirect('users')->with('status','Kullanıcı Düzenleme Başarılı');
     }
 
     public function create(){
