@@ -38,7 +38,7 @@ class HomeController extends Controller
 
     public function userposts(){ 
         if(Auth::user()->role =='admin'){
-            $posts = Posts::orderBy('created_at', 'DESC')->get();
+            $posts = Posts::orderBy('created_at', 'DESC')->simplePaginate(10);
             return view('users.posts',compact('posts'));
         }
         else{
