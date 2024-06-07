@@ -6,13 +6,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Database\Eloquent\Builder;
 
 class UserController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
 
@@ -82,5 +81,15 @@ class UserController extends Controller
         $user->save();
         return redirect('users')->with('status','Kullanıcı Ekleme Başarılı');
 
+    }
+
+    public function search(Request $request){
+        $users = User::query()->when($request->search, function(Builder $builder) use ($request){
+               $builder->where('name', 'like', "%{$request->search}%")->orWhere('email', 'like', "%{$request->search}%")
+               ->orWhere('age', 'like', "%{$request->search}%")->orWhere('gender', 'like', "%{$request->search}%")
+               ->orWhere('role', 'like', "%{$request->search}%");
+                })->paginate(10);
+
+                return View('users.show',compact('users')); 
     }
 }
