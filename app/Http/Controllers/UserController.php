@@ -18,7 +18,7 @@ class UserController extends Controller
 
 
     public function show(){
-        $users = User::all();
+        $users = User::simplePaginate(10);
         return View('users.show',compact('users'));  
     }
 
