@@ -22,7 +22,7 @@ Route::middleware([CheckAdmin::class])->group(function(){
     Route::get('users/create',[UserController::class,'create'])->name('usercreate');
     Route::post('users/store',[UserController::class,'store'])->name('userstore');
     Route::post( '/search', [UserController::class,'search'])->name('usersearch');
-    Route::post( '/searchpost', [PostController::class,'search'])->name('searchpost');
+    Route::post( '/searchpost', [HomeController::class,'search'])->name('searchpost');
 });
 
 
