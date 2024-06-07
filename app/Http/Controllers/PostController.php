@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 use App\Models\Posts;
 use App\Models\Comments;
@@ -36,6 +37,15 @@ class PostController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return Redirect('/');
+    }
+
+    public function search(Request $request){
+        $posts = Posts::query()->when($request->search, function(Builder $builder) use ($request){
+               $builder->where('title', 'like', "%{$request->search}%")->orWhere('category', 'like', "%{$request->search}%")
+               ->orWhere('created_at', 'like', "%{$request->search}%");
+                })->paginate(10);
+
+                return View('users.posts',compact('posts')); 
     }
 
 }
