@@ -39,13 +39,4 @@ class PostController extends Controller
         return Redirect('/');
     }
 
-    public function search(Request $request){
-        $posts = Posts::query()->when($request->search, function(Builder $builder) use ($request){
-               $builder->where('title', 'like', "%{$request->search}%")->orWhere('category', 'like', "%{$request->search}%")
-               ->orWhere('created_at', 'like', "%{$request->search}%");
-                })->paginate(10);
-
-                return View('users.posts',compact('posts')); 
-    }
-
 }
