@@ -56,7 +56,7 @@
                                         <input type="hidden" name="oldimage" value="{{ $post->photo }}">
                                     </div>
                                   </div>
-                                <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                                <button type="submit" class="btn btn-danger me-2">Kaydet</button>
                                 <a href="{{ url('home')}}" type="reset" class="btn btn-light">İptal</a>
                               </form>
                         </div>

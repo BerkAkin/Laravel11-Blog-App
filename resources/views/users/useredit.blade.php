@@ -66,7 +66,7 @@
                                 <label>Fotoğraf</label>
                                 <input type="file" class="form-control file-upload-info"  name="photo">
                               </div>
-                            <button type="submit" class="btn btn-primary me-2">Kaydet</button>
+                            <button type="submit" class="btn btn-danger me-2">Kaydet</button>
                             <button type="reset" class="btn btn-light">İptal</button>
                           </form>
                     </div>
