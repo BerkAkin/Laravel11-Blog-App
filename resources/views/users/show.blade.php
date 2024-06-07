@@ -9,8 +9,16 @@
             <div class="card">
                 <div class="card-body">
                 <h4 class="card-title">Kullanıcılar</h4>
-                <div class="mb-5">
-                    {{ $users->links() }}  
+                <div class="mb-5 row">
+                    <div class="col-3">{{ $users->links() }} </div>
+                    <div class="col-9 d-flex justify-content-end ">
+                        <form action="/search" method="POST" role="search">
+                            @csrf
+                            <input name="search" type="text" style="border:none; border-bottom:2px solid #f57575; outline:none" class="fw-bold  form-control-input" id="kullaniciAra" placeholder="Kullanıcı Ara"></input>
+                            <button type="submit" class="btn-danger btn-sm" style="border:none; outline:none "><i class="icon-search pb-1"></i></button>
+                        </form>
+                    </div>
+                     
                   </div>
                 @if(session('status'))
                     <p class="card-description">
@@ -19,7 +27,7 @@
                         </div>
                     </p>
                 @endif
-
+                    
                 <div class="table-responsive">
                     
                     <table class="table table-hover">
