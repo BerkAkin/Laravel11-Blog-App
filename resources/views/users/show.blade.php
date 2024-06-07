@@ -9,6 +9,9 @@
             <div class="card">
                 <div class="card-body">
                 <h4 class="card-title">Kullanıcılar</h4>
+                <div class="mb-5">
+                    {{ $users->links() }}  
+                  </div>
                 @if(session('status'))
                     <p class="card-description">
                         <div class="alert alert-success">
@@ -16,7 +19,9 @@
                         </div>
                     </p>
                 @endif
+
                 <div class="table-responsive">
+                    
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -54,12 +59,15 @@
                             </tr>
                             @endforeach
                             
+                            
                         </tbody>
                     </table>
+                   
                 </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
+    
 </div>
 @endsection
