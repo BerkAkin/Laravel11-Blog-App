@@ -17,6 +17,7 @@ Route::group(['prefix'=> 'auth'], function(){
 Route::middleware([CheckAdmin::class])->group(function(){
     Route::get('users',[UserController::class,'show'])->name('users');
     Route::get('users/edit/{id}',[UserController::class,'edit'])->name('useredit');
+    Route::post('users/update/{id}',[UserController::class,'update'])->name('userupdate');
     Route::get('users/delete/{id}',[UserController::class,'delete'])->name('userdelete');
     Route::get('users/create',[UserController::class,'create'])->name('usercreate');
     Route::post('users/store',[UserController::class,'store'])->name('userstore');
