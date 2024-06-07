@@ -66,3 +66,4 @@ Bu belge, Laravel 11 kullanılarak geliştirilen blog uygulamasının tanımın�
 -   [ ] Gönderi Kaynaklar Kısmı
 -   [ ] Gönderi Detay Sayfası Düzenlemeleri
 -   [ ] Profil Doğrulama
+-   [ ] Anasayfa Filtreleme
