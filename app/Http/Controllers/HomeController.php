@@ -127,11 +127,11 @@ class HomeController extends Controller
     }
     
     public function search(Request $request){
-        $users = Posts::query()->when($request->search, function(Builder $builder) use ($request){
+        $posts = Posts::query()->when($request->search, function(Builder $builder) use ($request){
                $builder->where('title', 'like', "%{$request->search}%")->orWhere('category', 'like', "%{$request->search}%")
-               ->orWhere('author', 'like', "%{$request->search}%")->orWhere('created_at', 'like', "%{$request->search}%");
+               ->orWhere('created_at', 'like', "%{$request->search}%");
                 })->paginate(10);
 
-                return View('users.show',compact('users')); 
+                return View('users.posts',compact('posts')); 
     }
 }
